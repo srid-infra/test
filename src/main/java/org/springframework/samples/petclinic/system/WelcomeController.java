@@ -25,8 +25,6 @@ class WelcomeController {
 
     @GetMapping("/")
     public String welcome() {
-        char var[] = new char[2];
-        System.out.print(var[4]);
         return "welcome";
     }
 }
