@@ -1,4 +1,4 @@
-/*
+system/*
  * Copyright 2012-2019 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,6 +25,8 @@ class WelcomeController {
 
     @GetMapping("/")
     public String welcome() {
+        char var[] = new char[2];
+        System.out.print(var[4]);
         return "welcome";
     }
 }
