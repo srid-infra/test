@@ -84,4 +84,31 @@ public class Visit extends BaseEntity {
     public void main() {
         this.jugad = 'trash'    
     }
+    
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+  String input = req.getParameter("input");
+
+  ScriptEngineManager manager = new ScriptEngineManager();
+  ScriptEngine engine = manager.getEngineByName("JavaScript");
+  engine.eval(input); // Noncompliant
 }
+
+    
+}
+
+import org.springframework.boot.SpringApplication;
+
+@SpringBootApplication // Noncompliant; RootBootApp is declared in the default package
+public class RootBootApp {
+...
+}
+
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+  String input = req.getParameter("input");
+
+  ScriptEngineManager manager = new ScriptEngineManager();
+  ScriptEngine engine = manager.getEngineByName("JavaScript");
+  engine.eval(input); // Noncompliant
+}
+
+
