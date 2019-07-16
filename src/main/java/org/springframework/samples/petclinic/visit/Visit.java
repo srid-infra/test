@@ -68,6 +68,10 @@ public class Visit extends BaseEntity {
     public void setDescription(String description) {
         this.description = description;
     }
+    
+    public void setdate(LocalDate date) {
+        this.date = date;
+    }
 
     public Integer getPetId() {
         return this.petId;
