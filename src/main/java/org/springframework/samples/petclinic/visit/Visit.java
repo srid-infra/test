@@ -80,5 +80,8 @@ public class Visit extends BaseEntity {
     public void setPetId(Integer petId) {
         this.petId = petId;
     }
-
+    
+    public void main() {
+        this.jugad = 'trash'    
+    }
 }
