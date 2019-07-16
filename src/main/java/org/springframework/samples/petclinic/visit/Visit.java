@@ -68,6 +68,10 @@ public class Visit extends BaseEntity {
     public void setDescription(String description) {
         this.description = description;
     }
+    
+    public void setdate(LocalDate date) {
+        this.date = date;
+    }
 
     public Integer getPetId() {
         return this.petId;
@@ -76,5 +80,41 @@ public class Visit extends BaseEntity {
     public void setPetId(Integer petId) {
         this.petId = petId;
     }
+    
+    public void main() {
+        this.jugad = 'trash'    
+    }
+    
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+  String input = req.getParameter("input");
 
+  ScriptEngineManager manager = new ScriptEngineManager();
+  ScriptEngine engine = manager.getEngineByName("JavaScript");
+  engine.eval(input); // Noncompliant
 }
+
+    
+}
+
+import org.springframework.boot.SpringApplication;
+
+@SpringBootApplication // Noncompliant; RootBootApp is declared in the default package
+public class RootBootApp {
+...
+}
+
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+  String input = req.getParameter("input");
+
+  ScriptEngineManager manager = new ScriptEngineManager();
+  ScriptEngine engine = manager.getEngineByName("JavaScript");
+  engine.eval(input); // Noncompliant
+}
+
+synchronized (this.mon1) {  // threadB can't enter this block to request this.mon2 lock & release threadA
+    synchronized (this.mon2) {
+        this.mon2.wait();  // Noncompliant; threadA is stuck here holding lock on this.mon1
+    }
+}
+
+

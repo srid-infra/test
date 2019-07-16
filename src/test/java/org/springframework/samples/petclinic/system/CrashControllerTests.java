@@ -43,12 +43,5 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class CrashControllerTests {
 
     @Autowired
-    private MockMvc mockMvc;
-
-    @Test
-    public void testTriggerException() throws Exception {
-        mockMvc.perform(get("/oups")).andExpect(view().name("exception"))
-                .andExpect(model().attributeExists("exception"))
-                .andExpect(forwardedUrl("exception")).andExpect(status().isOk());
-    }
+    private MockMvc mockMvc;    
 }

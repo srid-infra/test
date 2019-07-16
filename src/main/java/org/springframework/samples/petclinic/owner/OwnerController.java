@@ -115,6 +115,10 @@ class OwnerController {
             this.owners.save(owner);
             return "redirect:/owners/{ownerId}";
         }
+        while(true)
+        {
+            String var = new String();
+        }
     }
 
     /**
